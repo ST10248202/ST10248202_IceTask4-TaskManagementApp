@@ -1,0 +1,49 @@
+﻿@model IEnumerable<TaskManagementApp.Models.TaskModel>
+
+@{
+    ViewData["Title"] = "Task Index";
+}
+
+<style>
+    body {
+        background-color: #fff3e0; /* Light  background for an easy-on-the-eye effect */
+    }
+</style>
+
+<div class="container my-5">
+    <h1 class="text-center">Your Tasks</h1>
+    <div class="text-end mb-3">
+        <a class="btn btn-success" asp-controller="Task" asp-action="Create">Create New Task</a>
+    </div>
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info text-center">No tasks available. Please create a new task.</div>
+    }
+    else
+    {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Deadline</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var task in Model)
+                {
+                    <tr>
+                        <td>@task.Title</td>
+                        <td>@task.Description</td>
+                        <td>@task.Deadline.ToString("d")</td>
+                        <td>
+                            <a class="btn btn-warning" asp-controller="Task" asp-action="Edit" asp-route-id="@task.Id">Edit</a>
+                            <a class="btn btn-danger" asp-controller="Task" asp-action="Delete" asp-route-id="@task.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

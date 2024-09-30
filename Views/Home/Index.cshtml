@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    body {
+        background-color: #fff3e0; /* Light  background  */
+    }
+</style>
+
+<div class="text-center my-5">
+    <h1 class="display-4">Welcome to Task Management App</h1>
+    <p class="lead">Manage your tasks efficiently with our user-friendly application.</p>
+    <div class="mt-4">
+        <p>
+            <a class="btn btn-primary btn-lg" asp-controller="Task" asp-action="Index">View Your Tasks</a>
+            <a class="btn btn-secondary btn-lg" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy Policy</a>
+        </p>
+    </div>
+</div>
+
+<div class="container">
+    <h2 class="mt-5">Features</h2>
+    <ul class="list-group">
+        <li class="list-group-item">✔️ Create, read, update, and delete tasks easily.</li>
+        <li class="list-group-item">✔️ Set deadlines and track your progress.</li>
+        <li class="list-group-item">✔️ User-friendly interface for seamless navigation.</li>
+        <li class="list-group-item">✔️ Comprehensive validation for task inputs.</li>
+    </ul>
+</div>
+
+<div class="text-center mt-5">
+    <h3>Get Started Now!</h3>
+    <p>Start managing your tasks effectively today.</p>
+    <a class="btn btn-success btn-lg" asp-controller="Task" asp-action="Create">Create New Task</a>
+</div>
